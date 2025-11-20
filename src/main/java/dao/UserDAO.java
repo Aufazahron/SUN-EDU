@@ -5,12 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.User;
-import util.DatabaseConnection;
 
 /**
  * Data Access Object untuk operasi database pada tabel user
  */
-public class UserDAO {
+public class UserDAO extends HomeDAO {
     
     /**
      * Mencari user berdasarkan username dan password
@@ -21,7 +20,7 @@ public class UserDAO {
     public User login(String username, String password) {
         String query = "SELECT * FROM user WHERE username = ? AND password = ? AND status = 1";
         
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             
             stmt.setString(1, username);
@@ -57,7 +56,7 @@ public class UserDAO {
     public User findByUsername(String username) {
         String query = "SELECT * FROM user WHERE username = ?";
         
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             
             stmt.setString(1, username);
@@ -92,7 +91,7 @@ public class UserDAO {
     public boolean save(User user) {
         String query = "INSERT INTO user (username, password, email, nama, telp, role, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             
             stmt.setString(1, user.getUsername());

@@ -22,7 +22,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.User;
-import util.DatabaseConnection;
+import dao.HomeDAO;
 
 /**
  * Controller untuk halaman login.
@@ -48,12 +48,12 @@ public class LoginController implements Initializable {
         userDAO = new UserDAO();
         
         // Test koneksi database saat inisialisasi
-        if (!DatabaseConnection.testConnection()) {
+        if (!HomeDAO.testConnection()) {
             showAlert(AlertType.ERROR, "Database Error", 
                 "Tidak dapat terhubung ke database. Pastikan:\n" +
-                "1. MySQL/MariaDB sudah berjalan\n" +
+                "1. MySQL sudah berjalan\n" +
                 "2. Database 'edu-sun' sudah dibuat\n" +
-                "3. Konfigurasi koneksi di DatabaseConnection.java sudah benar");
+                "3. Konfigurasi koneksi di HomeDAO.java sudah benar");
         }
     }
 

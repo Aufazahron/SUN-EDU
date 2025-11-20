@@ -1,14 +1,14 @@
-package util;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Class untuk mengelola koneksi database
+ * Base class untuk semua DAO yang mengelola koneksi database
  */
-public class DatabaseConnection {
-    private static final String DB_URL = "jdbc:mariadb://localhost:3306/edu-sun";
+public class HomeDAO {
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/edu-sun";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "";
     
@@ -19,7 +19,7 @@ public class DatabaseConnection {
      * @return Connection object
      * @throws SQLException jika terjadi error saat koneksi
      */
-    public static Connection getConnection() throws SQLException {
+    protected static Connection getConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
             try {
                 connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
