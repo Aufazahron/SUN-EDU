@@ -1,1 +1,6 @@
+dao\UserDAO.class
 Main.class
+controller\LoginController.class
+util\DatabaseConnection.class
+controller\RegisterController.class
+model\User.class
