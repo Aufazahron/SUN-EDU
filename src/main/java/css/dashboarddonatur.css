@@ -1,0 +1,44 @@
+/*
+ * Stylesheet untuk Dashboard Donatur
+ */
+
+.mainFxmlClass {
+
+}
+
+.btnBlack {
+    -fx-background-color: white;
+}
+
+.program-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+}
+
+.program-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 4);
+    -fx-cursor: hand;
+}
+
+.program-title {
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-text-fill: #020E4C;
+}
+
+.program-description {
+    -fx-font-size: 14;
+    -fx-text-fill: #666;
+}
+
+.program-location {
+    -fx-font-size: 12;
+    -fx-text-fill: #888;
+}
+
+.progress-info {
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-text-fill: #020E4C;
+}

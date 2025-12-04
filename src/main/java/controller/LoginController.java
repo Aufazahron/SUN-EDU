@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.User;
 import dao.HomeDAO;
+import util.SessionManager;
 
 /**
  * Controller untuk halaman login.
@@ -72,14 +73,46 @@ public class LoginController implements Initializable {
             User user = userDAO.login(username, password);
             
             if (user != null) {
-                showAlert(AlertType.INFORMATION, "Login Berhasil", 
-                    "Selamat datang, " + user.getNama() + "!\n" +
-                    "Role: " + user.getRole());
+                // Simpan user ke session
+                SessionManager.setCurrentUser(user);
                 
-                // TODO: Redirect ke halaman sesuai role
-                // Contoh: jika admin -> ke halaman admin
-                //         jika donatur -> ke halaman donatur
-                //         jika relawan -> ke halaman relawan
+                // Redirect ke halaman sesuai role
+                String role = user.getRole();
+                String fxmlPath = "";
+                
+                if ("donatur".equals(role)) {
+                    fxmlPath = "src/main/java/view/DashboardDonatur.fxml";
+                } else if ("admin".equals(role)) {
+                    // TODO: Tambahkan halaman admin jika ada
+                    showAlert(AlertType.INFORMATION, "Login Berhasil", 
+                        "Selamat datang, " + user.getNama() + "!\n" +
+                        "Role: " + user.getRole());
+                    return;
+                } else if ("relawan".equals(role)) {
+                    // TODO: Tambahkan halaman relawan jika ada
+                    showAlert(AlertType.INFORMATION, "Login Berhasil", 
+                        "Selamat datang, " + user.getNama() + "!\n" +
+                        "Role: " + user.getRole());
+                    return;
+                } else {
+                    showAlert(AlertType.WARNING, "Role Tidak Diketahui", 
+                        "Role Anda belum dikonfigurasi dengan benar.");
+                    return;
+                }
+                
+                // Redirect ke halaman yang sesuai
+                try {
+                    URL url = new File(fxmlPath).toURI().toURL();
+                    Parent root = FXMLLoader.load(url);
+                    Scene scene = new Scene(root);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (Exception e) {
+                    showAlert(AlertType.ERROR, "Error", 
+                        "Tidak dapat membuka halaman: " + e.getMessage());
+                    e.printStackTrace();
+                }
                 
             } else {
                 showAlert(AlertType.ERROR, "Login Gagal", 

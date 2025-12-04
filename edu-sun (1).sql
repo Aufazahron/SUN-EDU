@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Des 2025 pada 04.30
+-- Waktu pembuatan: 04 Des 2025 pada 06.02
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -40,6 +40,13 @@ CREATE TABLE `donasi` (
   `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `donasi`
+--
+
+INSERT INTO `donasi` (`id`, `id_program`, `id_user`, `nominal`, `bukti_transfer`, `catatan_donatur`, `catatan_admin`, `tanggal_donasi`, `created_at`, `updated_at`) VALUES
+(1, 2, 2, 50000, NULL, 'Aamiin', NULL, '2025-12-04 11:18:54', '2025-12-04 11:18:54', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -71,7 +78,7 @@ CREATE TABLE `program` (
 
 INSERT INTO `program` (`id`, `id_user`, `nama`, `deskripsi`, `tempat`, `cover`, `biaya_program`, `target_donasi`, `donasi_terkumpul`, `jumlah_donatur`, `status_program`, `tanggal_pelaksanaan`, `tanggal_mulai_donasi`, `tanggal_selesai_donasi`, `created_at`, `updated_at`) VALUES
 (1, 3, 'MemBAYUkan Semua', 'mendinginkan suasana', 'Aula Awan Kinton', 'bayu.jpg\r\n', NULL, 0, 0, 0, 'draft', NULL, NULL, NULL, '2025-11-20 11:46:26', NULL),
-(2, 1, 'Monev', 'Triwulan 3', 'Balai Desa', 'tes.jpg', NULL, 0, 0, 0, 'draft', NULL, NULL, NULL, '2025-11-20 12:04:20', NULL),
+(2, 1, 'Monev', 'Triwulan 3', 'Balai Desa', 'proker.jpeg', NULL, 0, 50000, 1, 'draft', NULL, NULL, NULL, '2025-11-20 12:04:20', '2025-12-04 11:39:52'),
 (3, 4, 'RAYAKARYA', 'LOMBA', 'KAMPUS', 'wkwk.png', NULL, 0, 0, 0, 'draft', NULL, NULL, NULL, '2025-11-20 12:09:33', NULL);
 
 -- --------------------------------------------------------
@@ -113,7 +120,6 @@ CREATE TABLE `user_donatur` (
   `jenis_donatur` enum('perorangan','perusahaan') NOT NULL DEFAULT 'perorangan',
   `nama_perusahaan` varchar(256) DEFAULT NULL COMMENT 'Diisi jika jenis perusahaan',
   `jabatan` varchar(128) DEFAULT NULL COMMENT 'Jabatan di perusahaan',
-  `tanggal_bergabung` datetime DEFAULT current_timestamp(),
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -159,7 +165,7 @@ ALTER TABLE `user_donatur`
 -- AUTO_INCREMENT untuk tabel `donasi`
 --
 ALTER TABLE `donasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `program`
