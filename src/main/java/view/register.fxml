@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
+   <stylesheets>
+      <URL value="@../css/login.css" />
+   </stylesheets>
    <children>
       <!-- Background image -->
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
@@ -21,40 +28,145 @@
          </image>
       </ImageView>
 
-      <!-- Card register di sebelah kanan -->
-      <Pane layoutX="800.0" layoutY="40.0" prefHeight="640.0" prefWidth="400.0" style="-fx-background-color: ecf2ff; -fx-background-radius: 18; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 20, 0, 0, 8);">
+      <!-- Card register di tengah -->
+      <Pane fx:id="registerCard" layoutX="440.0" layoutY="50.0" prefHeight="620.0" prefWidth="400.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 25, 0, 0, 10);" visible="false">
          <children>
-            <VBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="14.0" prefWidth="360.0" spacing="10.0">
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-
+            <VBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="30.0" prefHeight="520.0" prefWidth="340.0" spacing="15.0">
                <children>
-                  <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Daftar Akun Baru" />
+                  <!-- Header dengan emoji -->
+                  <VBox spacing="4.0">
+                     <children>
+                        <Label fx:id="headerLabel" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #1a237e;" text="🎉 Daftar Akun Baru" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Bergabunglah dengan komunitas SUN EDU" />
+                     </children>
+                  </VBox>
 
-                  <Label style="-fx-font-weight: bold; -fx-padding: 12 0 0 0;" text="Nama Lengkap" />
-                  <TextField fx:id="namaField" prefWidth="359.0" promptText="Masukkan nama lengkap" style="-fx-background-radius: 32; -fx-background-color: ffffff; -fx-padding: 10; -fx-font-weight: 800;" />
+                  <!-- Progress Indicator -->
+                  <VBox spacing="4.0">
+                     <children>
+                        <Label fx:id="progressLabel" style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Langkah 1 dari 2: Pilih Tipe Akun" />
+                        <ProgressBar fx:id="progressBar" prefWidth="340.0" progress="0.5" style="-fx-accent: #FFA726;" />
+                     </children>
+                  </VBox>
 
-                  <Label style="-fx-font-weight: bold;" text="Username" />
-                  <TextField fx:id="usernameField" prefWidth="359.0" promptText="Masukkan username" style="-fx-background-radius: 32; -fx-background-color: ffffff; -fx-padding: 10; -fx-font-weight: 800;" />
+                  <!-- Form Fields dengan Emoji -->
+                  <VBox fx:id="formContainer" spacing="18.0">
+                     <children>
+                        <!-- Nama Lengkap -->
+                        <VBox spacing="4.0">
+                           <children>
+                              <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1a237e;" text="👤 Masukkan Nama Lengkap Anda" />
+                              <TextField fx:id="namaField" prefHeight="32.0" prefWidth="340.0" promptText="Contoh: Budi Santoso" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10; -fx-padding: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-font-size: 14px;" />
+                           </children>
+                        </VBox>
 
-                  <Label style="-fx-font-weight: bold;" text="Email" />
-                  <TextField fx:id="emailField" prefWidth="359.0" promptText="Masukkan email" style="-fx-background-radius: 32; -fx-background-color: ffffff; -fx-padding: 10; -fx-font-weight: 800;" />
+                        <!-- Username -->
+                        <VBox spacing="4.0">
+                           <children>
+                              <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1a237e;" text="🔑 Buat Username Unik" />
+                              <TextField fx:id="usernameField" prefHeight="32.0" prefWidth="340.0" promptText="Contoh: budi_santoso" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10; -fx-padding: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-font-size: 14px;" />
+                           </children>
+                        </VBox>
 
-                  <Label style="-fx-font-weight: bold;" text="No. Telepon" />
-                  <TextField fx:id="telpField" prefWidth="359.0" promptText="Masukkan no. telepon" style="-fx-background-radius: 32; -fx-background-color: ffffff; -fx-padding: 10; -fx-font-weight: 800;" />
+                        <!-- Email -->
+                        <VBox spacing="4.0">
+                           <children>
+                              <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1a237e;" text="📧 Alamat Email Anda" />
+                              <TextField fx:id="emailField" prefHeight="32.0" prefWidth="340.0" promptText="Contoh: budi@example.com" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10; -fx-padding: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-font-size: 14px;" />
+                           </children>
+                        </VBox>
 
-                  <Label style="-fx-font-weight: bold;" text="Password" />
-                  <PasswordField fx:id="passwordField" prefWidth="360.0" promptText="Masukkan password" style="-fx-background-radius: 32; -fx-padding: 10; -fx-font-weight: 800; -fx-background-color: ffffff; -fx-font-style: 0000;" />
+                        <!-- No. Telepon -->
+                        <VBox spacing="4.0">
+                           <children>
+                              <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1a237e;" text="📱 Nomor Telepon" />
+                              <TextField fx:id="telpField" prefHeight="32.0" prefWidth="340.0" promptText="Contoh: 081234567890" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10; -fx-padding: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-font-size: 14px;" />
+                           </children>
+                        </VBox>
 
-                  <Label style="-fx-font-weight: bold;" text="Role" />
-                  <ComboBox fx:id="roleComboBox" prefWidth="360.0" style="-fx-background-radius: 32; -fx-background-color: ffffff; -fx-padding: 5;" />
+                        <!-- Password -->
+                        <VBox spacing="4.0">
+                           <children>
+                              <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1a237e;" text="🔒 Buat Password Aman" />
+                              <PasswordField fx:id="passwordField" prefHeight="32.0" prefWidth="340.0" promptText="Minimal 6 karakter" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10; -fx-padding: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-font-size: 14px;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+
+                  <!-- Buttons -->
+                  <VBox fx:id="buttonsContainer" spacing="12.0">
+                     <children>
+                        <Button fx:id="registerButton" onAction="#handleRegister" prefHeight="50.0" prefWidth="340.0" style="-fx-background-color: #020EFC; -fx-text-fill: white; -fx-background-radius: 10; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;" text="✨ Lanjutkan Daftar">
+                           <effect>
+                              <DropShadow color="#020EFC80" height="5.0" radius="10.0" width="0.0" />
+                           </effect>
+                        </Button>
+                        <Button fx:id="backToLoginButton" onAction="#handleBackToLogin" prefHeight="45.0" prefWidth="340.0" style="-fx-background-color: transparent; -fx-text-fill: #666666; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-font-size: 14px; -fx-cursor: hand;" text="← Kembali ke Login" />
+                     </children>
+                  </VBox>
                </children>
             </VBox>
+         </children>
+      </Pane>
 
-            <Button fx:id="registerButton" layoutX="30.0" layoutY="556.0" onAction="#handleRegister" prefWidth="340.0" style="-fx-background-color: #495bab; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 32; -fx-padding: 10 0 10 0;" text="Daftar" />
-            
-            <Button fx:id="backToLoginButton" layoutX="30.0" layoutY="588.0" onAction="#handleBackToLogin" prefWidth="340.0" style="-fx-background-color: transparent; -fx-text-fill: #495bab; -fx-font-weight: bold; -fx-background-radius: 32; -fx-padding: 10 0 10 0;" text="Kembali ke Login" />
+      <!-- Modal Pilihan Tipe Akun -->
+      <StackPane fx:id="modalOverlay" alignment="CENTER" mouseTransparent="false" style="-fx-background-color: rgba(0,0,0,0.5);" visible="true" />
+
+      <!-- Modal Preview Data -->
+      <StackPane fx:id="previewOverlay" alignment="CENTER" mouseTransparent="false" style="-fx-background-color: rgba(0,0,0,0.5);" visible="false">
+         <children>
+            <Pane fx:id="previewModal" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 25, 0, 0, 10);">
+               <children>
+                  <VBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="30.0" prefHeight="490.0" prefWidth="440.0" spacing="20.0">
+                     <children>
+                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #1a237e;" text="📋 Preview Data Anda" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Periksa kembali data yang telah Anda isi:" />
+                        
+                        <VBox fx:id="previewContainer" spacing="15.0">
+                           <!-- Preview items akan diisi oleh controller -->
+                        </VBox>
+                        
+                        <HBox spacing="15.0">
+                           <children>
+                              <Button fx:id="editButton" onAction="#editData" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #e0e0e0; -fx-text-fill: #666666; -fx-background-radius: 10; -fx-font-size: 14px; -fx-cursor: hand;" text="✏️ Edit Data" />
+                              <Button fx:id="submitButton" onAction="#confirmSubmit" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #020EFC; -fx-text-fill: white; -fx-background-radius: 10; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand;" text="✅ Submit" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+      <Pane fx:id="roleModal" layoutX="398.0" layoutY="160.0" prefHeight="427.0" prefWidth="500.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 25, 0, 0, 10);">
+         <children>
+            <VBox alignment="CENTER" layoutX="50.0" layoutY="50.0" prefHeight="300.0" prefWidth="400.0" spacing="30.0">
+               <children>
+                  <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #1a237e;" text="🎯 Pilih Tipe Akun Anda" />
+                  <Label style="-fx-font-size: 16px; -fx-text-fill: #666666; -fx-text-alignment: center;" text="Pilih peran Anda dalam komunitas SUN EDU" wrapText="true" />
+                  
+                        <HBox spacing="20.0">
+                     <children>
+                        <VBox fx:id="donaturCard" alignment="CENTER" onMouseClicked="#selectDonatur" prefHeight="180.0" prefWidth="180.0" spacing="15.0" style="-fx-background-color: #f0f7ff; -fx-background-radius: 15; -fx-padding: 20; -fx-cursor: hand;">
+                           <children>
+                              <Label style="-fx-font-size: 48px;" text="💰" />
+                              <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1a237e;" text="Donatur" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dukung program pendidikan dengan donasi" textAlignment="CENTER" wrappingWidth="140.919921875" />
+                           </children>
+                        </VBox>
+                        
+                              <VBox fx:id="relawanCard" alignment="CENTER" onMouseClicked="#selectRelawan" prefHeight="180.0" prefWidth="180.0" spacing="15.0" style="-fx-background-color: #fff7e6; -fx-background-radius: 15; -fx-padding: 20; -fx-cursor: hand;">
+                           <children>
+                              <Label style="-fx-font-size: 48px;" text="🤝" />
+                              <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1a237e;" text="Relawan" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bantu anak-anak mendapatkan pendidikan" textAlignment="CENTER" wrappingWidth="140.919921875" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </children>
       </Pane>
    </children>

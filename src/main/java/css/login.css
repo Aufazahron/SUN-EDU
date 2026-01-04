@@ -1,0 +1,63 @@
+/* Button Login - Primary Button */
+.btn-primary {
+    -fx-background-color: #495bab;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 32;
+    -fx-padding: 10 0 10 0;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.btn-primary:hover {
+    -fx-background-color: #3d4a8f;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 4);
+}
+
+.btn-primary:pressed {
+    -fx-background-color: #2d3a6f;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4, 0, 0, 2);
+}
+
+/* Button Secondary - Transparent Button */
+.btn-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #495bab;
+    -fx-font-weight: bold;
+    -fx-background-radius: 32;
+    -fx-padding: 10 0 10 0;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: rgba(73, 91, 171, 0.1);
+    -fx-text-fill: #3d4a8f;
+    -fx-effect: dropshadow(gaussian, rgba(73, 91, 171, 0.2), 5, 0, 0, 2);
+}
+
+.btn-secondary:pressed {
+    -fx-background-color: rgba(73, 91, 171, 0.2);
+}
+
+/* TextField dan PasswordField hover effect */
+.text-field, .password-field {
+    -fx-background-radius: 32;
+    -fx-background-color: #ffffff;
+    -fx-padding: 10;
+    -fx-font-weight: 800;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 3, 0, 0, 1);
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #495bab;
+    -fx-border-width: 2;
+    -fx-border-radius: 32;
+    -fx-effect: dropshadow(gaussian, rgba(73, 91, 171, 0.3), 8, 0, 0, 3);
+}
+
+.text-field:hover, .password-field:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+

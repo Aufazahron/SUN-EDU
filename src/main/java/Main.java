@@ -18,10 +18,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        URL url = new File("src/main/java/view/login.fxml").toURI().toURL();
+        URL url = new File("src/main/java/view/LandingPage.fxml").toURI().toURL();
         Scene scene = new Scene(FXMLLoader.load(url));
         
-        stage.setTitle("Belajar JavaFX");
+        stage.setTitle("Edu-Sun");
         stage.setScene(scene);
         stage.show();
     }

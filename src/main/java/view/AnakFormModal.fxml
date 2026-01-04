@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: white; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="700.0" spacing="20.0" style="-fx-padding: 30;">
+         <children>
+            <!-- Header -->
+            <Label fx:id="formTitleLabel" text="Tambah Data Anak" textFill="#020e4c">
+               <font>
+                  <Font name="Segoe UI Bold" size="24.0" />
+               </font>
+            </Label>
+            
+            <!-- Form Fields -->
+            <VBox spacing="15.0">
+               <children>
+                  <!-- Relawan (untuk admin) -->
+                  <VBox fx:id="relawanContainer" spacing="5.0" visible="false">
+                     <children>
+                        <Label text="Relawan * (Admin)" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="relawanCombo" prefHeight="35.0" prefWidth="640.0" promptText="Pilih relawan" style="-fx-background-radius: 10;" />
+                     </children>
+                  </VBox>
+                  
+                  <!-- Nama -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Nama Lengkap *" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="namaField" prefHeight="35.0" prefWidth="640.0" promptText="Masukkan nama lengkap" style="-fx-background-radius: 10;" />
+                     </children>
+                  </VBox>
+                  
+                  <!-- Tanggal Lahir dan Jenis Kelamin -->
+                  <HBox spacing="15.0">
+                     <children>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Tanggal Lahir *" textFill="#020e4c">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="tanggalLahirPicker" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 10;" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Jenis Kelamin *" textFill="#020e4c">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="jenisKelaminCombo" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 10;">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <String fx:value="L" />
+                                       <String fx:value="P" />
+                                    </FXCollections>
+                                 </items>
+                              </ComboBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  
+                  <!-- Status Pendidikan -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Status Anak*" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="statusPendidikanCombo" prefHeight="35.0" prefWidth="640.0" style="-fx-background-radius: 10;">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Diajukan" />
+                                 <String fx:value="Rentan" />
+                                 <String fx:value="Dalam Pemantauan" />
+                                 <String fx:value="Stabil" />
+                                 <String fx:value="Selesai" />
+                              </FXCollections>
+                           </items>
+                        </ComboBox>
+                     </children>
+                  </VBox>
+                  
+                  <!-- Alamat -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Alamat *" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="alamatField" prefHeight="80.0" prefWidth="640.0" promptText="Masukkan alamat lengkap" style="-fx-background-radius: 10;" wrapText="true" />
+                     </children>
+                  </VBox>
+                  
+                  <!-- Nama Orangtua dan No Telp -->
+                  <HBox spacing="15.0">
+                     <children>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Nama Orangtua/Wali *" textFill="#020e4c">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="namaOrangtuaField" prefHeight="35.0" prefWidth="300.0" promptText="Nama orangtua/wali" style="-fx-background-radius: 10;" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="No. Telepon Orangtua *" textFill="#020e4c">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="noTelpOrangtuaField" prefHeight="35.0" prefWidth="300.0" promptText="08xxxxxxxxxx" style="-fx-background-radius: 10;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <!-- Tombol Aksi -->
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+               <children>
+                  <Button fx:id="btnBatal" mnemonicParsing="false" onAction="#handleBatalForm" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 10; -fx-text-fill: #020E4C;" text="Batal" />
+                  <Button fx:id="btnSimpan" mnemonicParsing="false" onAction="#handleSimpanAnak" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #020E4C; -fx-background-radius: 10; -fx-text-fill: white;" text="Simpan">
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

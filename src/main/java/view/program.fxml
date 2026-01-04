@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProgramController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0">
+         <image>
+            <Image url="@../assets/bghome.jpeg" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="80.0" prefWidth="1280.0">
+         <children>
+            <Label layoutX="877.0" layoutY="31.0" opacity="0.89" text="Hubungi Kami" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="1010.0" layoutY="31.0" opacity="0.89" text="Tentang Kami" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="700.0" layoutY="31.0" opacity="0.89" text="Home" textFill="ORANGE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="786.0" layoutY="31.0" opacity="0.89" text="Program" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="1143.0" layoutY="24.0" mnemonicParsing="false" style="-fx-border-color: ffffff; -fx-background-color: none; -fx-border-radius: 12; -fx-border-width: 2;" text="Masuk" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Label layoutX="75.0" layoutY="89.0" text="SUN EDU" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="56.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" layoutX="75.0" layoutY="152.0" prefHeight="36.0" prefWidth="607.0" text="Gerakan Pendidikan untuk Masa Depan yang " textFill="ORANGE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" layoutX="75.0" layoutY="180.0" prefHeight="36.0" prefWidth="607.0" text="Lebih Cerah" textFill="ORANGE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="programTable" layoutX="75.0" layoutY="253.0" prefHeight="400.0" prefWidth="1130.0" style="-fx-background-color: rgba(255, 255, 255, 0.9); -fx-background-radius: 10;">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="60.0" text="ID" />
+            <TableColumn fx:id="colNama" prefWidth="200.0" text="Nama Program" />
+            <TableColumn fx:id="colDeskripsi" prefWidth="300.0" text="Deskripsi" />
+            <TableColumn fx:id="colTempat" prefWidth="200.0" text="Tempat" />
+            <TableColumn fx:id="colCover" prefWidth="150.0" text="Cover" />
+            <TableColumn fx:id="colCreatedAt" prefWidth="150.0" text="Tanggal Dibuat" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnRefresh" layoutX="1141.0" layoutY="216.0" mnemonicParsing="false" onAction="#btnRefresh" text="Refresh" />
+   </children>
+</AnchorPane>

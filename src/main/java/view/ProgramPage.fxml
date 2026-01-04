@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #EEF0FA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProgramPageController">
+   <stylesheets>
+      <URL value="@../css/landingpage.css" />
+   </stylesheets>
+   <children>
+      <!-- Background Image -->
+      <ImageView fitHeight="720.0" fitWidth="1280.0">
+         <image>
+            <Image url="@../assets/bghome.jpeg" />
+         </image>
+      </ImageView>
+      
+      <!-- Navigation Bar -->
+      <HBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="20.0" spacing="20.0">
+         <children>
+            <ImageView fx:id="logoImageView" fitHeight="56.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+               <image>
+                  <Image url="@../assets/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      
+      <HBox alignment="CENTER_RIGHT" layoutX="700.0" layoutY="20.0" spacing="30.0">
+         <children>
+            <Label fx:id="navHome" onMouseClicked="#navigateToHome" styleClass="nav-label" text="Home" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="navProgram" onMouseClicked="#navigateToProgram" styleClass="nav-label" text="Program" textFill="ORANGE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="navHubungi" onMouseClicked="#navigateToHubungi" styleClass="nav-label" text="Hubungi Kami" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="navTentang" onMouseClicked="#navigateToTentang" styleClass="nav-label" text="Tentang Kami" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnMasuk" mnemonicParsing="false" onAction="#btnMasuk" styleClass="masuk-btn" text="Masuk">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      
+      <!-- Content Area -->
+      <VBox layoutX="50.0" layoutY="100.0" prefHeight="600.0" prefWidth="1180.0" spacing="20.0">
+         <children>
+            <!-- Title Section -->
+            <VBox spacing="10.0">
+               <children>
+                  <Label text="Program Kerja Tersedia" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label text="Dukung program-program pendidikan yang sedang berjalan" textFill="#fcfcfc">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            
+            <!-- Search Bar and Filter -->
+            <HBox spacing="10.0">
+               <children>
+                  <TextField fx:id="searchField" onKeyReleased="#onSearchKeyReleased" prefHeight="40.0" prefWidth="400.0" promptText="Cari program..." style="-fx-background-radius: 10; -fx-padding: 10;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <HBox spacing="10.0">
+                     <children>
+                        <Button fx:id="btnProgramBerjalan" mnemonicParsing="false" onAction="#showProgramBerjalan" style="-fx-background-color: #020E4C; -fx-text-fill: white; -fx-background-radius: 10; -fx-padding: 10 20;" text="Program Berjalan" />
+                        <Button fx:id="btnProgramTerlaksana" mnemonicParsing="false" onAction="#showProgramTerlaksana" style="-fx-background-color: #d9d9d9; -fx-text-fill: #020E4C; -fx-background-radius: 10; -fx-padding: 10 20;" text="Program Terlaksana" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            
+            <!-- Program Cards Container -->
+            <ScrollPane fitToWidth="true" prefHeight="430.0" prefWidth="1180.0" style="-fx-background-color: transparent;">
+               <content>
+                  <FlowPane fx:id="programListContainer" hgap="20.0" prefWidth="1160.0" vgap="20.0" />
+               </content>
+            </ScrollPane>
+            
+            <!-- Hasil Program Kerja Section -->
+            <VBox spacing="15.0" style="-fx-padding: 30 0 0 0;" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

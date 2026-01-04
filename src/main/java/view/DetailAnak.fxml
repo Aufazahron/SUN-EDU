@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #eef0fa;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DetailAnakController">
+   <children>
+      <!-- Sidebar -->
+      <HBox alignment="TOP_CENTER" layoutX="18.0" layoutY="14.0" prefHeight="682.0" prefWidth="250.0" style="-fx-background-color: #020E4C; -fx-background-radius: 25;">
+         <children>
+            <ImageView fitHeight="127.0" fitWidth="200.0" layoutX="20.0" x="20.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Text fill="WHITE" layoutY="-69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerakan Untuk Masa Depan" wrappingWidth="231.20000000000027" x="30.0" y="220.0">
+         <font>
+            <Font name="Segoe UI Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Lengkapi Profil Anda" x="40.0" y="210.0">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </Text>
+      <ProgressBar layoutX="40.0" layoutY="220.0" prefHeight="23.0" prefWidth="204.0" progress="0.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" />
+      <Button fx:id="btnBeranda" layoutX="38.0" layoutY="300.0" maxHeight="39.0" maxWidth="204.0" mnemonicParsing="false" onAction="#handleBeranda" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 18; -fx-text-fill: d9d9d9; -fx-text-alignment: center-left; -fx-font: Segeo UI; -fx-font-size: 12;" text="Beranda" textFill="#378c0d">
+         <font>
+            <Font name="Inter 18pt Bold" size="30.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="btnAnak" layoutX="38.0" layoutY="355.0" maxHeight="39.0" maxWidth="204.0" mnemonicParsing="false" onAction="#handleAnak" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 18; -fx-text-fill: ffa500; -fx-font: Segeo UI; -fx-font-size: 12;" text="Anak">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="38.0" layoutY="410.0" maxHeight="39.0" maxWidth="204.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 18;" text="Button" />
+      <Button fx:id="btnLogout" layoutX="38.0" layoutY="620.0" maxHeight="39.0" maxWidth="204.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: red; -fx-background-radius: 18;" text="Logout" />
+      
+      <!-- Main Content -->
+      <ScrollPane fitToWidth="true" layoutX="283.0" layoutY="25.0" prefHeight="695.0" prefWidth="978.0" style="-fx-background: transparent; -fx-border-color: transparent;">
+         <content>
+            <VBox prefHeight="2000.0" prefWidth="978.0" style="-fx-background-color: #eef0fa;" spacing="20.0">
+               <children>
+                  <!-- Header -->
+                  <AnchorPane prefHeight="60.0" prefWidth="967.0" style="-fx-background-color: #020e4c; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                     <children>
+                        <Text fx:id="namaAnakHeaderText" fill="WHITE" layoutX="20.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Detail Anak">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="tanggalText" fill="#b0b0b0" layoutX="700.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tanggal: -">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="statusText" fill="#6efa6e" layoutX="850.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status: Aktif">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  
+                  <!-- Foto dan Info Dasar -->
+                  <AnchorPane prefHeight="200.0" prefWidth="975.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                     <children>
+                        <StackPane alignment="CENTER" layoutX="50.0" layoutY="14.0" prefHeight="172.0" prefWidth="172.0">
+                           <children>
+                              <Circle fx:id="fotoCircle" fill="#e0e0e0" radius="86.0" stroke="#020e4c" strokeType="INSIDE" strokeWidth="3.0" />
+                              <ImageView fx:id="fotoImageView" fitHeight="172.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <clip>
+                                    <Circle centerX="86.0" centerY="86.0" radius="86.0" />
+                                 </clip>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <VBox layoutX="250.0" layoutY="20.0" spacing="10.0">
+                           <children>
+                              <HBox spacing="15.0">
+                                 <children>
+                                    <VBox spacing="5.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Lengkap">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="namaAnakText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="16.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="30.0">
+                                 <children>
+                                    <VBox spacing="5.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Tanggal Lahir">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="tanggalLahirText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Jenis Kelamin">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="jenisKelaminText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Status Pendidikan">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="statusPendidikanText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  
+                  <!-- Data Anak -->
+                  <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-padding: 20;">
+                     <children>
+                        <Label text="👶 Data Anak" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <VBox spacing="8.0">
+                           <children>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Orangtua/Wali">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="namaOrangtuaAnakText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="No. Telepon">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="noTelpOrangtuaAnakText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Alamat">
+                                       <font>
+                                          <Font name="Segoe UI" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="alamatAnakText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="900.0">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  
+                  <!-- Informasi Keluarga -->
+                  <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-padding: 20;">
+                     <children>
+                        <Label text="👨‍👩‍👧 Informasi Keluarga" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <VBox spacing="8.0">
+                           <children>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Status Orang Tua">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="statusOrangtuaText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Tinggal Bersama">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="tinggalBersamaText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Ayah">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="namaAyahText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Ibu">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="namaIbuText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Wali">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="namaWaliText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Deskripsi Keluarga">
+                                       <font>
+                                          <Font name="Segoe UI" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="deskripsiKeluargaText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="900.0">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  
+                  <!-- Kondisi Ekonomi -->
+                  <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-padding: 20;">
+                     <children>
+                        <Label text="💰 Kondisi Ekonomi" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <VBox spacing="8.0">
+                           <children>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Pekerjaan Ayah">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="pekerjaanAyahText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Penghasilan Ayah">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="penghasilanAyahText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Pekerjaan Ibu">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="pekerjaanIbuText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Penghasilan Ibu">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="penghasilanIbuText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Pekerjaan Wali">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="pekerjaanWaliText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0" prefWidth="300.0">
+                                       <children>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Penghasilan Wali">
+                                             <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="penghasilanWaliText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Deskripsi Ekonomi">
+                                       <font>
+                                          <Font name="Segoe UI" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="deskripsiEkonomiText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="900.0">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  
+                  <!-- Kondisi Pendidikan -->
+                  <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-padding: 20;">
+                     <children>
+                        <Label text="📚 Kondisi Pendidikan" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <VBox spacing="8.0">
+                           <children>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Sekolah Terakhir">
+                                       <font>
+                                          <Font name="Segoe UI" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="sekolahTerakhirText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Alasan Putus Sekolah">
+                                       <font>
+                                          <Font name="Segoe UI" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="alasanPutusSekolahText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="900.0">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Minat Belajar">
+                                       <font>
+                                          <Font name="Segoe UI" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="minatBelajarText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="900.0">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  
+                  <!-- Kondisi Kesehatan -->
+                  <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-padding: 20;">
+                     <children>
+                        <Label text="🏥 Kondisi Kesehatan" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <VBox spacing="8.0">
+                           <children>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Riwayat Penyakit">
+                                       <font>
+                                          <Font name="Segoe UI" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="riwayatPenyakitText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="900.0">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Layanan Kesehatan">
+                                       <font>
+                                          <Font name="Segoe UI" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="layananKesehatanText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Deskripsi Kesehatan">
+                                       <font>
+                                          <Font name="Segoe UI" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="deskripsiKesehatanText" fill="#020e4c" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="900.0">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  
+                  <!-- Riwayat Monitoring -->
+                  <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-padding: 20;">
+                     <children>
+                        <Label text="📋 Riwayat Monitoring" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="monitoringTable" prefHeight="200.0" prefWidth="935.0">
+                           <columns>
+                              <TableColumn fx:id="colTanggal" prefWidth="200.0" text="Tanggal" />
+                              <TableColumn fx:id="colRelawan" prefWidth="200.0" text="Relawan" />
+                              <TableColumn fx:id="colStatus" prefWidth="200.0" text="Status" />
+                              <TableColumn fx:id="colDetail" prefWidth="335.0" text="Detail" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  
+                  <!-- Tombol Aksi -->
+                  <HBox alignment="CENTER" spacing="15.0" style="-fx-padding: 10 0;">
+                     <children>
+                        <Button fx:id="btnBack" mnemonicParsing="false" onAction="#handleBack" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: #999999; -fx-background-radius: 10; -fx-text-fill: white; -fx-cursor: hand;" text="Kembali">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnEditDetail" mnemonicParsing="false" onAction="#handleEditDetail" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: #020e4c; -fx-background-radius: 10; -fx-text-fill: white; -fx-cursor: hand;" text="✏️ Edit Detail">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

@@ -20,9 +20,12 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.User;
 import dao.HomeDAO;
+import util.SessionManager;
 
 /**
  * Controller untuk halaman login.
@@ -41,6 +44,9 @@ public class LoginController implements Initializable {
     @FXML
     private Button registerButton;
     
+    @FXML
+    private Button backButton;
+    
     private UserDAO userDAO;
 
     @Override
@@ -55,6 +61,19 @@ public class LoginController implements Initializable {
                 "2. Database 'edu-sun' sudah dibuat\n" +
                 "3. Konfigurasi koneksi di HomeDAO.java sudah benar");
         }
+        
+        // Menambahkan event handler untuk Enter key
+        passwordField.setOnKeyPressed((KeyEvent event) -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                loginButton.fire();
+            }
+        });
+        
+        usernameField.setOnKeyPressed((KeyEvent event) -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                passwordField.requestFocus();
+            }
+        });
     }
 
     @FXML
@@ -72,14 +91,38 @@ public class LoginController implements Initializable {
             User user = userDAO.login(username, password);
             
             if (user != null) {
-                showAlert(AlertType.INFORMATION, "Login Berhasil", 
-                    "Selamat datang, " + user.getNama() + "!\n" +
-                    "Role: " + user.getRole());
+                // Simpan user ke session
+                SessionManager.setCurrentUser(user);
                 
-                // TODO: Redirect ke halaman sesuai role
-                // Contoh: jika admin -> ke halaman admin
-                //         jika donatur -> ke halaman donatur
-                //         jika relawan -> ke halaman relawan
+                // Redirect ke halaman sesuai role
+                String role = user.getRole();
+                String fxmlPath = "";
+                
+                if ("donatur".equals(role)) {
+                    fxmlPath = "src/main/java/view/DashboardDonatur.fxml";
+                } else if ("admin".equals(role)) {
+                    fxmlPath = "src/main/java/view/DashboardAdmin.fxml";
+                } else if ("relawan".equals(role)) {
+                    fxmlPath = "src/main/java/view/DashboardRelawan.fxml";
+                } else {
+                    showAlert(AlertType.WARNING, "Role Tidak Diketahui", 
+                        "Role Anda belum dikonfigurasi dengan benar.");
+                    return;
+                }
+                
+                // Redirect ke halaman yang sesuai
+                try {
+                    URL url = new File(fxmlPath).toURI().toURL();
+                    Parent root = FXMLLoader.load(url);
+                    Scene scene = new Scene(root);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (Exception e) {
+                    showAlert(AlertType.ERROR, "Error", 
+                        "Tidak dapat membuka halaman: " + e.getMessage());
+                    e.printStackTrace();
+                }
                 
             } else {
                 showAlert(AlertType.ERROR, "Login Gagal", 
@@ -104,6 +147,22 @@ public class LoginController implements Initializable {
         } catch (Exception e) {
             showAlert(AlertType.ERROR, "Error", 
                 "Tidak dapat membuka halaman register: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleBack(ActionEvent event) {
+        try {
+            URL url = new File("src/main/java/view/LandingPage.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            showAlert(AlertType.ERROR, "Error", 
+                "Tidak dapat membuka halaman: " + e.getMessage());
             e.printStackTrace();
         }
     }

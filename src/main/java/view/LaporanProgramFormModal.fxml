@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: white; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LaporanProgramFormModalController" mouseTransparent="false">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="700.0" spacing="20.0" style="-fx-padding: 30;" mouseTransparent="false">
+         <children>
+            <!-- Header -->
+            <Label fx:id="formTitleLabel" text="Buat Laporan Program" textFill="#020e4c">
+               <font>
+                  <Font name="Segoe UI Bold" size="24.0" />
+               </font>
+            </Label>
+            
+            <!-- Form Fields -->
+            <VBox spacing="15.0" mouseTransparent="false">
+               <children>
+                  <!-- Pilih Program -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Program Kerja *" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="programComboBox" prefHeight="35.0" prefWidth="640.0" style="-fx-background-radius: 10;" promptText="Pilih Program Kerja..." />
+                     </children>
+                  </VBox>
+                  
+                  <!-- Tanggal Laporan -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Tanggal Laporan *" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="tanggalPelaksanaanPicker" prefHeight="35.0" prefWidth="640.0" style="-fx-background-radius: 10;" mouseTransparent="false" focusTraversable="true" />
+                     </children>
+                  </VBox>
+                  
+                  <!-- Laporan -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Laporan *" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="laporanField" prefHeight="150.0" prefWidth="640.0" promptText="Tuliskan laporan lengkap tentang pelaksanaan program..." style="-fx-background-radius: 10;" wrapText="true" mouseTransparent="false" focusTraversable="true" />
+                     </children>
+                  </VBox>
+                  
+                  <!-- Upload Dokumentasi -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Dokumentasi" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Button fx:id="btnUploadDokumentasi" mnemonicParsing="false" onAction="#handleUploadDokumentasi" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #4CAF50; -fx-background-radius: 10; -fx-text-fill: white;" text="📤 Upload File">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="dokumentasiLabel" prefHeight="40.0" text="Belum ada file dipilih" textFill="#666666">
+                                 <font>
+                                    <Font name="Segoe UI" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            
+            <!-- Tombol Aksi -->
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+               <children>
+                  <Button fx:id="btnBatal" mnemonicParsing="false" onAction="#handleBatalForm" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 10; -fx-text-fill: #020E4C;" text="Batal" />
+                  <Button fx:id="btnSimpan" mnemonicParsing="false" onAction="#handleSimpanLaporan" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #020E4C; -fx-background-radius: 10; -fx-text-fill: white;" text="Simpan">
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
+

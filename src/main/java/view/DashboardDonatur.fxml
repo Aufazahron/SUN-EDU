@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="720" prefWidth="1280" style="-fx-background-color: #E8EBF0;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardDonaturController">
+    
+    <!-- Sidebar Kiri -->
+    <left>
+        <VBox prefWidth="260" spacing="20" style="-fx-background-color: #020E4C; -fx-background-radius: 20; -fx-padding: 20;">
+            <VBox.margin>
+                <Insets bottom="20" left="20" top="20" />
+            </VBox.margin>
+            
+            <!-- Logo dan Brand -->
+            <VBox alignment="CENTER">
+            <ImageView fitHeight="97.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/logo.png" />
+               </image>
+            </ImageView>
+                
+                <Label alignment="CENTER" prefHeight="0.0" prefWidth="220.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Gerakan untuk masa depan" textFill="white" />
+            </VBox>
+            
+            <!-- Menu Buttons -->
+            <VBox spacing="15" style="-fx-padding: 30 0 0 0;">
+                <Button fx:id="homeMenuButton" alignment="CENTER_LEFT" graphicTextGap="12" onAction="#showHomeView" prefHeight="48" prefWidth="220" style="-fx-background-color: white; -fx-text-fill: #020E4C; -fx-background-radius: 25; -fx-padding: 12 16;">
+                    <graphic>
+                        <SVGPath content="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#FFA500" scaleX="1.2" scaleY="1.2" />
+                    </graphic>
+                    <font>
+                        <Font size="16" />
+                    </font>
+                    <text>Home</text>
+                </Button>
+                
+                <!-- Calendar Button 1 -->
+                <Button fx:id="programMenuButton" alignment="CENTER_LEFT" graphicTextGap="12" onAction="#showProgramListView" prefHeight="48" prefWidth="220" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 12 16;">
+                    <graphic>
+                        <SVGPath content="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z" fill="#CCCCCC" scaleX="1.2" scaleY="1.2" />
+                    </graphic>
+                    <font>
+                        <Font size="16" />
+                    </font>
+                    <text>List Program Kerja</text>
+                </Button>
+                
+                <!-- Hasil Program Kerja Button -->
+                <Button fx:id="hasilProgramMenuButton" alignment="CENTER_LEFT" graphicTextGap="12" onAction="#showHasilProgramView" prefHeight="48" prefWidth="220" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 12 16;">
+                    <graphic>
+                        <SVGPath content="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="#CCCCCC" scaleX="1.2" scaleY="1.2" />
+                    </graphic>
+                    <font>
+                        <Font size="16" />
+                    </font>
+                    <text>Hasil Program Kerja</text>
+                </Button>
+            </VBox>
+            
+            <!-- Logout Button -->
+            <VBox VBox.vgrow="ALWAYS" />
+            <Button fx:id="logoutButton" alignment="CENTER_LEFT" graphicTextGap="12" onAction="#handleLogout" prefHeight="48" prefWidth="220" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 12 16;">
+                <graphic>
+                    <SVGPath content="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.59L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" fill="#CCCCCC" scaleX="1.2" scaleY="1.2" />
+                </graphic>
+                <font>
+                    <Font size="16" />
+                </font>
+                <text>Logout</text>
+            </Button>
+            
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </VBox>
+    </left>
+    
+    <!-- Konten Utama -->
+    <center>
+        <VBox spacing="20" style="-fx-padding: 40;">
+            <!-- Welcome Card -->
+            <HBox prefHeight="220" style="-fx-background-color: #020E4c; -fx-background-radius: 20; -fx-padding: 40;">
+                <VBox alignment="CENTER_LEFT" prefHeight="140.0" prefWidth="258.0" spacing="20" HBox.hgrow="ALWAYS">
+                    <Label style="-fx-font-size: 32; -fx-font-weight: bold;" text="Selamat Datang" textFill="white">
+                        <font>
+                            <Font name="System Bold" size="32" />
+                        </font>
+                    </Label>
+                    
+                    <Label fx:id="namaLabel" style="-fx-font-size: 28; -fx-font-weight: bold;" text="NAMA" textFill="white">
+                        <font>
+                            <Font name="System Bold" size="28" />
+                        </font>
+                    </Label>
+                </VBox>
+                <VBox prefHeight="140.0" prefWidth="289.0" style="-fx-background-color: #ffffff; -fx-background-radius: 16;">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="42.0" prefWidth="284.0" style="-fx-font-size: 18; -fx-font-weight: bold;" text="Total Donasi yang diberikan">
+                            <VBox.margin>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="totalDonasiLabel" alignment="CENTER" prefHeight="18.0" prefWidth="278.0" style="-fx-font-size: 16;" text="Rp. 0">
+                            <VBox.margin>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="jumlahProgramLabel" alignment="CENTER" prefHeight="26.0" prefWidth="291.0" style="-fx-font-size: 16;" text="untuk 0 Program Kerja" />
+                    </children>
+                </VBox>
+                
+                <!-- Decorative Icon -->
+                <StackPane alignment="CENTER_RIGHT" prefWidth="200">
+                    <SVGPath content="M25,5 L45,25 L25,45 L5,25 Z M25,15 L15,25 L25,35 L35,25 Z M30,10 L50,30 L30,50 L10,30 Z" fill="rgba(255,255,255,0.1)" scaleX="3" scaleY="3" />
+                </StackPane>
+            </HBox>
+
+            <StackPane>
+                <!-- Home Dashboard -->
+                <VBox fx:id="homeView" spacing="20">
+                    <Label style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #020E4C;" text="Dashboard" />
+                    <HBox spacing="20">
+                        <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 16; -fx-padding: 20;" HBox.hgrow="ALWAYS">
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #020E4C;" text="Donasi per Bulan" />
+                                <HBox HBox.hgrow="ALWAYS" />
+                                <Label style="-fx-font-size: 14; -fx-text-fill: #020E4C;" text="Tahun:" />
+                                <ComboBox fx:id="tahunComboBox" prefWidth="100.0" style="-fx-background-radius: 8;" />
+                            </HBox>
+                            <BarChart fx:id="donasiChart" prefHeight="420.0" prefWidth="600.0" verticalGridLinesVisible="false">
+                                <xAxis>
+                                    <CategoryAxis />
+                                </xAxis>
+                                <yAxis>
+                                    <NumberAxis />
+                                </yAxis>
+                            </BarChart>
+                        </VBox>
+                        <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 16; -fx-padding: 20;" HBox.hgrow="ALWAYS">
+                            <Label style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #020E4C;" text="Alokasi Kategori" />
+                            <PieChart fx:id="programPieChart" prefHeight="500.0" prefWidth="500.0" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Hasil Program Kerja View -->
+                <VBox fx:id="hasilProgramView" managed="false" spacing="15" visible="false">
+                    <Label style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #020E4C;" text="Hasil Program Kerja" />
+                    <Label style="-fx-font-size: 14; -fx-text-fill: #666;" text="Lihat laporan dan dokumentasi dari program kerja yang telah selesai" />
+                    <ScrollPane fitToWidth="true" prefHeight="550" style="-fx-background-color: transparent;">
+                        <content>
+                            <FlowPane fx:id="hasilProgramContainer" hgap="16" prefWidth="1080" vgap="16" />
+                        </content>
+                    </ScrollPane>
+                </VBox>
+
+                <!-- Program List -->
+                <VBox fx:id="programListView" managed="false" spacing="15" visible="false">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label fx:id="programListTitle" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #020E4C;" text="Program Kerja Tersedia" />
+                        <HBox spacing="8" style="-fx-padding: 0 0 0 20;">
+                            <Button fx:id="availableButton" mnemonicParsing="false" onAction="#showAvailablePrograms" style="-fx-background-color: #020E4C; -fx-text-fill: white; -fx-background-radius: 10;" text="Program tersedia" />
+                            <Button fx:id="supportedButton" mnemonicParsing="false" onAction="#showSupportedPrograms" style="-fx-background-color: #d9d9d9; -fx-text-fill: #020E4C; -fx-background-radius: 10;" text="Program yang didukung" />
+                        </HBox>
+                        <TextField fx:id="searchField" onKeyReleased="#onSearchKeyReleased" promptText="Cari program..." style="-fx-background-radius: 12; -fx-padding: 10;" HBox.hgrow="ALWAYS" />
+                    </HBox>
+
+                    <ScrollPane fitToWidth="true" prefHeight="420" style="-fx-background-color: transparent;">
+                        <content>
+                            <FlowPane fx:id="programListContainer" hgap="16" prefWidth="1080" vgap="16" />
+                        </content>
+                    </ScrollPane>
+                </VBox>
+            </StackPane>
+        </VBox>
+    </center>
+    
+</BorderPane>

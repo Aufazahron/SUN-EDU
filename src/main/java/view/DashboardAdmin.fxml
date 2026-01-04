@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: EEF0FA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardAdminController">
+   <children>
+      <HBox alignment="TOP_CENTER" layoutX="20.0" layoutY="19.0" prefHeight="682.0" prefWidth="250.0" style="-fx-background-color: #020E4C; -fx-background-radius: 25;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/logo.png" />
+               </image>
+            </ImageView>
+         </children></HBox>
+      <Text fill="WHITE" layoutX="-8.0" layoutY="-62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerakan Untuk Masa Depan" wrappingWidth="199.0" x="60.0" y="220.0">
+         <font>
+            <Font name="Segoe UI Bold" size="24.0" />
+         </font>
+      </Text>
+      <VBox layoutX="285.0" layoutY="19.0" prefHeight="250.0" prefWidth="951.0" style="-fx-background-color: #020E4C; -fx-background-radius: 25;">
+         <children>
+            <AnchorPane prefHeight="219.0" prefWidth="940.0">
+               <children>
+                  <Text fill="WHITE" layoutY="-23.0" lineSpacing="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selamat Datang Admin" wrappingWidth="188.21563720703125" x="30.0" y="80.0">
+                     <font>
+                        <Font name="Segoe UI Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Text>
+                  <Pane layoutX="30.0" layoutY="124.0" prefHeight="95.0" prefWidth="199.0" style="-fx-background-color: white; -fx-background-radius: 18;">
+                     <children>
+                        <Text fill="#020e4c" layoutX="7.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Anak" wrappingWidth="140.19824218750006">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Text>
+                        <Label fx:id="anakPendingCountLabel" layoutX="147.0" layoutY="33.0" text="0" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Line endX="-6.20001220703125" endY="36.79998779296875" layoutX="136.0" layoutY="33.0" startX="-6.20001220703125" startY="-11.20001220703125" stroke="#d9d9d9" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="260.0" layoutY="124.0" prefHeight="95.0" prefWidth="199.0" style="-fx-background-color: white; -fx-background-radius: 18;">
+                     <children>
+                        <Text fill="#020e4c" layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Relawan Pending" wrappingWidth="113.79997253417963">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Text>
+                        <Label fx:id="relawanPendingCountLabel" layoutX="156.0" layoutY="33.0" text="0" textFill="#FFA500">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Line endX="-6.20001220703125" endY="36.79998779296875" layoutX="138.0" layoutY="31.0" startX="-6.20001220703125" startY="-11.20001220703125" stroke="#d9d9d9" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="485.0" layoutY="124.0" prefHeight="95.0" prefWidth="199.0" style="-fx-background-color: white; -fx-background-radius: 18;">
+                     <children>
+                        <Text fill="#020e4c" layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Laporan" wrappingWidth="113.79997253417963">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Text>
+                        <Label fx:id="laporanPendingCountLabel" layoutX="155.0" layoutY="33.0" text="0" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Line endX="-6.20001220703125" endY="36.79998779296875" layoutX="138.0" layoutY="31.0" startX="-6.20001220703125" startY="-11.20001220703125" stroke="#d9d9d9" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children></VBox>
+      <VBox layoutX="285.0" layoutY="280.0" prefHeight="409.0" prefWidth="470.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+         <children>
+            <AnchorPane prefHeight="409.0" prefWidth="470.0">
+               <children>
+                  <Text fill="#020e4c" layoutX="20.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Relawan Pending" wrappingWidth="153.00000000000006">
+                     <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="360.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleRelawanMenu" style="-fx-background-color: #020e4c; -fx-background-radius: 10; -fx-text-fill: white;" text="Lihat Semua" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <ScrollPane fx:id="relawanPendingScrollPane" layoutX="10.0" layoutY="60.0" prefHeight="330.0" prefWidth="450.0" style="-fx-background: white; -fx-border-color: transparent;">
+                     <content>
+                        <VBox fx:id="relawanPendingContainer" spacing="10.0" style="-fx-padding: 10;">
+                     <children>
+                     </children>
+                  </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </children></VBox>
+      <VBox layoutX="778.0" layoutY="280.0" prefHeight="409.0" prefWidth="470.0" style="-fx-background-color: ffa500; -fx-background-radius: 25;">
+         <children>
+            <AnchorPane prefHeight="409.0" prefWidth="470.0">
+               <children>
+                  <Text fill="#020e4c" layoutX="30.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aktivitas Terbaru" wrappingWidth="153.00000000000006">
+                     <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <ScrollPane fx:id="aktivitasScrollPane" layoutX="10.0" layoutY="60.0" prefHeight="330.0" prefWidth="450.0" style="-fx-background: transparent; -fx-border-color: transparent;">
+                     <content>
+                        <VBox fx:id="aktivitasContainer" spacing="10.0" style="-fx-padding: 10;">
+                           <children>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <Label fx:id="emptyAktivitasLabel" alignment="CENTER" layoutX="10.0" layoutY="200.0" prefHeight="50.0" prefWidth="450.0" text="Tidak ada aktivitas terbaru" textFill="#666666" visible="false">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children></VBox>
+      <!--<ProgressBar layoutX="40.0" layoutY="220.0" prefHeight="23.0" prefWidth="204.0" progress="0.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" />-->
+      <Button layoutX="41.0" layoutY="211.0" maxHeight="39.0" maxWidth="204.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 18; -fx-text-fill: #FFA500;" text="Dashboard">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="41.0" layoutY="266.0" maxHeight="39.0" maxWidth="204.0" mnemonicParsing="false" onAction="#handleAnakMenu" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 18; -fx-text-fill: #020E4C;" text="Anak" />
+      <Button layoutX="41.0" layoutY="321.0" maxHeight="39.0" maxWidth="204.0" mnemonicParsing="false" onAction="#handleRelawanMenu" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 18; -fx-text-fill: #020E4C;" text="Relawan" />
+      <Button layoutX="41.0" layoutY="376.0" maxHeight="39.0" maxWidth="204.0" mnemonicParsing="false" onAction="#handleProgramKerjaMenu" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 18; -fx-text-fill: #020e4c;" text="Program Kerja" />
+      <Button layoutX="41.0" layoutY="431.0" maxHeight="39.0" maxWidth="204.0" mnemonicParsing="false" onAction="#handleLaporanMenu" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 18; -fx-text-fill: #020e4c;" text="Laporan" />
+      <Button layoutX="41.0" layoutY="486.0" maxHeight="39.0" maxWidth="204.0" mnemonicParsing="false" onAction="#handleLaporanProgramMenu" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 18; -fx-text-fill: #020e4c;" text="Laporan Program" />
+      <Button layoutX="41.0" layoutY="541.0" maxHeight="39.0" maxWidth="204.0" mnemonicParsing="false" onAction="#handleFaqMenu" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 18; -fx-text-fill: #020e4c;" text="FAQ / Pesan" />
+      <Button layoutX="41.0" layoutY="640.0" maxHeight="39.0" maxWidth="204.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: red; -fx-background-radius: 18; -fx-text-fill: white;" text="Logout" />
+   </children>
+</AnchorPane>

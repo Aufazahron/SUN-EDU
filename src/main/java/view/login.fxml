@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -12,6 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <stylesheets>
+      <URL value="@../css/login.css" />
+   </stylesheets>
    <children>
       <!-- Background image -->
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
@@ -21,7 +25,7 @@
       </ImageView>
 
       <!-- Card login di sebelah kanan -->
-      <Pane layoutX="840.0" layoutY="160.0" prefHeight="400.0" prefWidth="360.0" style="-fx-background-color: ecf2ff; -fx-background-radius: 18; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 20, 0, 0, 8);">
+      <Pane layoutX="840.0" layoutY="160.0" prefHeight="441.0" prefWidth="360.0" style="-fx-background-color: ecf2ff; -fx-background-radius: 18; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 20, 0, 0, 8);">
          <children>
             <VBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="40.0" prefWidth="320.0" spacing="12.0">
                <padding>
@@ -32,16 +36,18 @@
                   <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Selamat Datang" />
 
                   <Label style="-fx-font-weight: bold; -fx-padding: 16 0 0 0;" text="Username" />
-                  <TextField fx:id="usernameField" prefWidth="299.0" promptText="Masukkan username" style="-fx-background-radius: 32; -fx-background-color: ffffff; -fx-padding: 10; -fx-font-weight: 800;" />
+                  <TextField fx:id="usernameField" prefWidth="299.0" promptText="Masukkan username" styleClass="text-field" />
 
                   <Label style="-fx-font-weight: bold;" text="Password" />
-                  <PasswordField fx:id="passwordField" prefWidth="300.0" promptText="Masukkan password" style="-fx-background-radius: 32; -fx-padding: 10; -fx-font-weight: 800; -fx-background-color: ffffff; -fx-font-style: 0000;" />
+                  <PasswordField fx:id="passwordField" prefWidth="300.0" promptText="Masukkan password" styleClass="password-field" />
                </children>
             </VBox>
 
-                  <Button fx:id="loginButton" layoutX="30.0" layoutY="295.0" onAction="#handleLogin" prefWidth="300.0" style="-fx-background-color: #495bab; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 32; -fx-padding: 10 0 10 0;" text="Login" />
+                  <Button fx:id="loginButton" layoutX="30.0" layoutY="295.0" onAction="#handleLogin" prefWidth="300.0" styleClass="btn-primary" text="Login" />
                   
-                  <Button fx:id="registerButton" layoutX="30.0" layoutY="340.0" onAction="#handleRegister" prefWidth="300.0" style="-fx-background-color: transparent; -fx-text-fill: #495bab; -fx-font-weight: bold; -fx-background-radius: 32; -fx-padding: 10 0 10 0;" text="Belum punya akun? Daftar" />
+                  <Button fx:id="registerButton" layoutX="30.0" layoutY="340.0" onAction="#handleRegister" prefWidth="300.0" styleClass="btn-secondary" text="Belum punya akun? Daftar" />
+                  
+                        <Button fx:id="backButton" layoutX="30.0" layoutY="385.0" onAction="#handleBack" prefWidth="300.0" styleClass="btn-secondary" text="Kembali" />
          </children>
       </Pane>
    </children>

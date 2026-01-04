@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="700.0" style="-fx-background-color: white; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="650.0" prefWidth="700.0" spacing="20.0" style="-fx-padding: 30;">
+         <children>
+            <!-- Header -->
+            <Label fx:id="formTitleLabel" text="Tambah Program Kerja" textFill="#020e4c">
+               <font>
+                  <Font name="Segoe UI Bold" size="24.0" />
+               </font>
+            </Label>
+            
+            <!-- Form Fields -->
+            <VBox spacing="15.0">
+               <children>
+                  <!-- Nama Program -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Nama Program *" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="namaField" prefHeight="35.0" prefWidth="640.0" promptText="Masukkan nama program" style="-fx-background-radius: 10;" />
+                     </children>
+                  </VBox>
+                  
+                  <!-- Deskripsi -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Deskripsi *" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="deskripsiField" prefHeight="100.0" prefWidth="640.0" promptText="Masukkan deskripsi program" style="-fx-background-radius: 10;" wrapText="true" />
+                     </children>
+                  </VBox>
+                  
+                  <!-- Tempat dan Kategori -->
+                  <HBox spacing="15.0">
+                     <children>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Tempat *" textFill="#020e4c">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tempatField" prefHeight="35.0" prefWidth="300.0" promptText="Tempat pelaksanaan" style="-fx-background-radius: 10;" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Kategori *" textFill="#020e4c">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="kategoriComboBox" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 10;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  
+                  <!-- Cover -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Cover (Nama File) *" textFill="#020e4c">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="coverField" prefHeight="35.0" prefWidth="640.0" promptText="contoh: program.jpg" style="-fx-background-radius: 10;" />
+                     </children>
+                  </VBox>
+                  
+                  <!-- Tanggal Pelaksanaan dan Target Donasi -->
+                  <HBox spacing="15.0">
+                     <children>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Tanggal Pelaksanaan" textFill="#020e4c">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="tanggalPelaksanaanField" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 10;" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Target Donasi (Rp)" textFill="#020e4c">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="targetDonasiField" prefHeight="35.0" prefWidth="300.0" promptText="Masukkan target donasi (contoh: 10000000)" style="-fx-background-radius: 10;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <!-- Tombol Aksi -->
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+               <children>
+                  <Button fx:id="btnBatal" mnemonicParsing="false" onAction="#handleBatalForm" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 10; -fx-text-fill: #020E4C;" text="Batal" />
+                  <Button fx:id="btnSimpan" mnemonicParsing="false" onAction="#handleSimpanProgram" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #020E4C; -fx-background-radius: 10; -fx-text-fill: white;" text="Simpan">
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
+

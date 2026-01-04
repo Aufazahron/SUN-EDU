@@ -1,0 +1,102 @@
+/* Landing Page Styles */
+
+/* Button Base Styles */
+.button {
+    -fx-cursor: hand;
+}
+
+/* Masuk Button */
+.masuk-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-radius: 5;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.masuk-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-border-color: #FFA726;
+    -fx-text-fill: #FFA726;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Donasi Button */
+.donasi-btn {
+    -fx-background-color: #020EFC;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 15 40;
+    -fx-cursor: hand;
+}
+
+.donasi-btn:hover {
+    -fx-background-color: #1a3dfc;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Program Button */
+.program-btn {
+    -fx-background-color: #020efc;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 15 40;
+    -fx-cursor: hand;
+}
+
+.program-btn:hover {
+    -fx-background-color: #1a3dfc;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-btn {
+    -fx-background-radius: 100;
+    -fx-background-color: rgba(255,255,255,0.2);
+    -fx-border-color: white;
+    -fx-border-radius: 100;
+    -fx-border-width: 2;
+    -fx-text-fill: WHITE;
+    -fx-cursor: hand;
+}
+
+.carousel-btn:hover {
+    -fx-background-color: rgba(255,255,255,0.4);
+    -fx-border-color: #FFA726;
+    -fx-text-fill: #FFA726;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.carousel-btn:disabled {
+    -fx-opacity: 0.5;
+    -fx-cursor: default;
+}
+
+/* Daftar Button */
+.daftar-btn {
+    -fx-background-color: #1565C0;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 15 30;
+    -fx-cursor: hand;
+}
+
+.daftar-btn:hover {
+    -fx-background-color: #1976D2;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Navigation Labels */
+.nav-label {
+    -fx-cursor: hand;
+}
+
+.nav-label:hover {
+    -fx-text-fill: #FFA726 !important;
+}
+

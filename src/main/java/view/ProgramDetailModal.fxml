@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProgramDetailModalController">
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+   </padding>
+   
+   <!-- Header -->
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="15">
+         <Label fx:id="programTitleLabel" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #020E4C;" text="Nama Program">
+            <font>
+               <Font name="System Bold" size="28.0" />
+            </font>
+         </Label>
+         <HBox HBox.hgrow="ALWAYS" />
+         <Button fx:id="closeButton" onAction="#handleClose" style="-fx-background-color: #f0f0f0; -fx-background-radius: 20; -fx-padding: 8 16;" text="✕" />
+      </HBox>
+   </top>
+   
+   <!-- Content -->
+   <center>
+      <VBox spacing="20">
+         <!-- Image -->
+         <!-- <StackPane prefHeight="300.0" prefWidth="840.0" style="-fx-background-color: #f0f0f0; -fx-background-radius: 16;">
+            <ImageView fx:id="coverImageView" fitHeight="131.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/logo.png" />
+               </image>
+            </ImageView>
+         </StackPane> -->
+         
+         <!-- Program Info -->
+         <VBox spacing="15">
+            <Label fx:id="descriptionLabel" style="-fx-font-size: 16; -fx-text-fill: #666;" text="Deskripsi Program" wrapText="true" />
+            <Label fx:id="locationLabel" style="-fx-font-size: 14; -fx-text-fill: #888;" text="📍 Tempat" />
+            
+            <!-- Progress Section -->
+            <VBox spacing="10" style="-fx-background-color: #f8f9fa; -fx-background-radius: 12; -fx-padding: 15;">
+               <HBox alignment="CENTER_LEFT" spacing="10">
+                  <Label fx:id="progressLabel" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #020E4C;" text="Terkumpul: Rp 0" />
+                  <Label fx:id="targetLabel" style="-fx-font-size: 16; -fx-text-fill: #888;" text=" / Rp 0" />
+               </HBox>
+               <ProgressBar fx:id="progressBar" prefHeight="12.0" prefWidth="800.0" progress="0.0" style="-fx-accent: #FFA500;" />
+               <Label fx:id="donaturCountLabel" style="-fx-font-size: 14; -fx-text-fill: #666;" text="0 Donatur" />
+            </VBox>
+            
+            <!-- Daftar Donatur Section -->
+            <VBox spacing="10" style="-fx-background-color: #f8f9fa; -fx-background-radius: 12; -fx-padding: 15;">
+               <Label style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #020E4C;" text="Daftar Donatur">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+               </Label>
+               <ScrollPane fx:id="donaturScrollPane" prefHeight="200.0" prefWidth="800.0" style="-fx-background: transparent; -fx-border-color: transparent;">
+                  <content>
+                     <VBox fx:id="donaturContainer" spacing="8" />
+                  </content>
+               </ScrollPane>
+            </VBox>
+            
+            <!-- Donation Form -->
+            <VBox spacing="15" style="-fx-background-color: #f8f9fa; -fx-background-radius: 12; -fx-padding: 20;">
+               <Label style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #020E4C;" text="Form Donasi">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+               </Label>
+               
+               <VBox spacing="10">
+                  <Label style="-fx-font-size: 14; -fx-text-fill: #333;" text="Nominal Donasi (Rp)" />
+                  <TextField fx:id="nominalField" promptText="Masukkan nominal donasi" style="-fx-background-radius: 8; -fx-padding: 10;" />
+                  
+                  <Label style="-fx-font-size: 14; -fx-text-fill: #333;" text="Catatan/Doa (Opsional)" />
+                  <TextArea fx:id="catatanField" prefHeight="80.0" prefWidth="800.0" promptText="Tuliskan catatan atau doa untuk program ini..." style="-fx-background-radius: 8; -fx-padding: 10;" wrapText="true" />
+                  
+                  <Label style="-fx-font-size: 14; -fx-text-fill: #333;" text="Bukti Transfer (Opsional)" />
+                  <HBox spacing="10">
+                     <Button fx:id="uploadButton" onAction="#handleUploadBukti" style="-fx-background-color: #020E4C; -fx-background-radius: 8; -fx-text-fill: white; -fx-padding: 10 20;" text="Pilih File" />
+                     <Label fx:id="fileLabel" style="-fx-font-size: 12; -fx-text-fill: #666;" text="Belum ada file dipilih" />
+                  </HBox>
+                  
+                  <Button fx:id="donateButton" onAction="#handleDonate" style="-fx-background-color: #FFA500; -fx-background-radius: 8; -fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold; -fx-padding: 12 30;" text="Donasi Sekarang" />
+               </VBox>
+            </VBox>
+         </VBox>
+      </VBox>
+   </center>
+</BorderPane>

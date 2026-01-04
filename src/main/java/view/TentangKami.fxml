@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import java.net.URL?>
+
+<ScrollPane fitToWidth="true" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TentangKamiController">
+   <stylesheets>
+      <URL value="@../css/landingpage.css" />
+   </stylesheets>
+   <content>
+      <VBox maxHeight="2160.0" maxWidth="1280.0" prefHeight="1200.0" prefWidth="1280.0" style="-fx-background-color: #EEF0FA;">
+         <children>
+            <!-- Hero Section -->
+            <AnchorPane prefHeight="500.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to right, #1a237e, #3949ab);">
+               <children>
+                  <ImageView fitHeight="720.0" fitWidth="1280.0">
+                     <image>
+                        <Image url="@../assets/bghome.jpeg" />
+                     </image>
+                  </ImageView>
+                  
+                  <!-- Navigation Bar -->
+                  <HBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="20.0" spacing="20.0">
+                     <children>
+                        <ImageView fx:id="logoImageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                           <image>
+                              <Image url="@../assets/logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  
+                  <HBox alignment="CENTER_RIGHT" layoutX="700.0" layoutY="20.0" spacing="30.0">
+                     <children>
+                        <Label fx:id="navHome" onMouseClicked="#navigateToHome" styleClass="nav-label" text="Home" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="navProgram" onMouseClicked="#navigateToProgram" styleClass="nav-label" text="Program" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="navHubungi" onMouseClicked="#navigateToHubungi" styleClass="nav-label" text="Hubungi Kami" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="navTentang" onMouseClicked="#navigateToTentang" styleClass="nav-label" text="Tentang Kami" textFill="ORANGE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnMasuk" mnemonicParsing="false" onAction="#btnMasuk" styleClass="masuk-btn" text="Masuk">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  
+                  <!-- Title Section -->
+                  <VBox alignment="CENTER" layoutX="0.0" layoutY="150.0" prefHeight="300.0" prefWidth="1280.0" spacing="20.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Tentang Kami">
+                           <font>
+                              <Font name="System Bold" size="48.0" />
+                           </font>
+                        </Text>
+                        <Text fill="ORANGE" strokeType="OUTSIDE" strokeWidth="0.0" text="Mengenal Lebih Dekat SUN EDU">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  
+                  <ImageView fx:id="logoMainImageView" fitHeight="100.0" fitWidth="100.0" layoutX="59.0" layoutY="5.0" preserveRatio="true" style="-fx-cursor: hand;">
+                     <image>
+                        <Image url="@../assets/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            
+            <!-- Content Section -->
+            <AnchorPane prefHeight="700.0" prefWidth="1280.0">
+               <children>
+                  <VBox alignment="CENTER" layoutX="100.0" layoutY="50.0" prefHeight="600.0" prefWidth="1080.0" spacing="30.0">
+                     <children>
+                        <!-- Visi Misi -->
+                        <VBox spacing="20.0">
+                           <children>
+                              <Label text="Visi" textFill="#1a237e">
+                                 <font>
+                                    <Font name="System Bold" size="32.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Menjadi platform pendidikan terdepan yang menghubungkan relawan dengan anak-anak yang membutuhkan dukungan pendidikan, menciptakan akses pendidikan yang merata dan berkualitas di seluruh Indonesia." wrappingWidth="1080.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        
+                        <VBox spacing="20.0">
+                           <children>
+                              <Label text="Misi" textFill="#1a237e">
+                                 <font>
+                                    <Font name="System Bold" size="32.0" />
+                                 </font>
+                              </Label>
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="1. Menyediakan platform yang mudah digunakan untuk melaporkan kasus anak yang membutuhkan dukungan pendidikan" wrappingWidth="1080.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="2. Menghubungkan relawan dengan anak-anak yang membutuhkan bantuan pendidikan" wrappingWidth="1080.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="3. Memastikan setiap laporan ditindaklanjuti dengan cepat dan tepat sasaran" wrappingWidth="1080.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="4. Membangun komunitas relawan yang solid dan berkomitmen untuk masa depan pendidikan Indonesia" wrappingWidth="1080.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        
+                        <!-- Sejarah -->
+                        <VBox spacing="20.0">
+                           <children>
+                              <Label text="Sejarah" textFill="#1a237e">
+                                 <font>
+                                    <Font name="System Bold" size="32.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="SUN EDU didirikan dari kepedulian terhadap tingginya angka putus sekolah di Indonesia. Dibangun dengan visi untuk memastikan setiap anak mendapatkan hak pendidikannya, SUN EDU menyediakan sistem yang dapat digunakan oleh masyarakat, sekolah, dan organisasi lokal untuk melaporkan kasus siswa yang membutuhkan dukungan. Setiap laporan akan ditindaklanjuti oleh tim SUN EDU bersama relawan, demi memastikan setiap anak kembali mendapatkan hak pendidikannya." textAlignment="JUSTIFY" wrappingWidth="1080.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        
+                        <!-- Nilai -->
+                        <VBox spacing="20.0">
+                           <children>
+                              <Label text="Nilai-Nilai Kami" textFill="#1a237e">
+                                 <font>
+                                    <Font name="System Bold" size="32.0" />
+                                 </font>
+                              </Label>
+                              <HBox spacing="30.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefWidth="250.0" spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 20;">
+                                       <children>
+                                          <Label text="🎯" textFill="#FFA726">
+                                             <font>
+                                                <Font size="40.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Fokus" textFill="#1a237e">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Fokus pada solusi pendidikan yang tepat sasaran" textAlignment="CENTER" wrappingWidth="210.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefWidth="250.0" spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 20;">
+                                       <children>
+                                          <Label text="🤝" textFill="#FFA726">
+                                             <font>
+                                                <Font size="40.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Kolaborasi" textFill="#1a237e">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Bekerja sama dengan berbagai pihak untuk mencapai tujuan" textAlignment="CENTER" wrappingWidth="210.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefWidth="250.0" spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 20;">
+                                       <children>
+                                          <Label text="💡" textFill="#FFA726">
+                                             <font>
+                                                <Font size="40.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Inovasi" textFill="#1a237e">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Terus berinovasi untuk memberikan solusi terbaik" textAlignment="CENTER" wrappingWidth="210.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefWidth="250.0" spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 20;">
+                                       <children>
+                                          <Label text="❤️" textFill="#FFA726">
+                                             <font>
+                                                <Font size="40.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Integritas" textFill="#1a237e">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Bekerja dengan jujur dan transparan" textAlignment="CENTER" wrappingWidth="210.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>
+
